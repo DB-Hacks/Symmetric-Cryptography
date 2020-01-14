@@ -1,4 +1,4 @@
-package util;
+package Utility;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
