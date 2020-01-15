@@ -10,7 +10,7 @@ public class OTP {
 		byte [] rt = ("Meet me at Berg on Friday").getBytes();
 		
 		byte [] ct = CryptoTools.getXor(ky, pt);
-		System.out.println("CT = " + new String(ct));	//Test Case: $'<x=3o-8c+=!f#$k
+		System.out.println("CT = " + CryptoTools.bytesToHex(ct));	//Test Case: 0724273C783D336F2D3863052B3D216623246B00342A22253F
 		
 		
 		byte [] bk = CryptoTools.getXor(ky, ct);
