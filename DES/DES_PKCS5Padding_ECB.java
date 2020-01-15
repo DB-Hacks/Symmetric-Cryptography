@@ -1,11 +1,9 @@
-package symmetric;
+package DES;
 
 import java.security.Key;
-
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-
-import util.CryptoTools;
+import Utility.CryptoTools;
 
 public class DES_PKCS5Padding_ECB
 {
