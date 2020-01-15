@@ -10,10 +10,12 @@ import Utility.CryptoTools;
 public class DES_PKCS5Padding_CBC_Decrypt {
 	public static void main(String[] args) throws Exception
 	{
-		byte[] ct = CryptoTools.hexToBytes("4E51297B424F90D8");
-		byte[] ct2 = CryptoTools.hexToBytes("B2ACD6ADF010DDC4");
-		byte[] ky = ("CSE@YORK").getBytes();
-		//byte[] iv = CryptoTools.hexToBytes("0123456701234567"); //not used because the first part is lost to us
+		//The first 8-bytes/16-hex of the cipher is lost
+		//AD516846444C2B4DDEDC4ACD6D9B60556395AC8E9C68F92543E5112D21C458BCBFC8139FC52A18CB78895302EEB6D8A5C818DE76472FC65D823470B18B3F52B4FA562BC1CB7D5C90
+		byte[] ct = CryptoTools.hexToBytes("6395AC8E9C68F925");
+		byte[] ct2 = CryptoTools.hexToBytes("43E5112D21C458BCBFC8139FC52A18CB78895302EEB6D8A5C818DE76472FC65D823470B18B3F52B4FA562BC1CB7D5C90");
+		byte[] ky = ("COMPUTER").getBytes();
+		//byte[] iv = CryptoTools.hexToBytes("0123456701234567"); 	not used because the first 8-bytes are lost to us
 		
 		Key secret = new SecretKeySpec(ky, "DES");
 		Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
@@ -21,7 +23,6 @@ public class DES_PKCS5Padding_CBC_Decrypt {
 		cipher.init(Cipher.DECRYPT_MODE, secret, aps);
 		byte[] pt = cipher.doFinal(ct2);
 		
-		System.out.println("PT = " + new String(pt) + "<");
-		//SEL
+		System.out.println("PT = >" + new String(pt) + "<");		//Test Case: > is lost to us the other parts can be recovered<
 	}
 }
