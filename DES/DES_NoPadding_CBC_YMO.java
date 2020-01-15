@@ -1,4 +1,4 @@
-package symmetric;
+package DES;
 
 import java.security.Key;
 import java.security.spec.AlgorithmParameterSpec;
@@ -7,12 +7,12 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-import util.CryptoTools;
+import Utility.CryptoTools;
 
 public class DES_NoPadding_CBC_YMO {
 	public static void main(String[] args) throws Exception
 	{
-		byte[] ct = CryptoTools.hexToBytes("437DBAB5607137A5"); //cut cipher text every 8 bytes 16 hex
+		byte[] ct = CryptoTools.hexToBytes("437DBAB5607137A5"); //cut cipher text every 8-bytes/16-hex
 		byte[] ct2 = CryptoTools.hexToBytes("CFC1031114634087");
 		byte[] ky = CryptoTools.hexToBytes("6B79466F724D4F50");
 		byte[] iv = CryptoTools.hexToBytes("6976466F724D4F50");
